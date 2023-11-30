@@ -22,7 +22,7 @@
     <tbody>
     <!-- Iterate over the list of wineries -->
     <tr th:each="winery:${wineries}">
-        <td th:text="${winery.wines}"></td>
+        <td th:text="${winery.website}"></td>
         <td th:text="${winery.name}"></td>
         <td th:text="${winery.location}"></td>
         <!-- Add other fields as needed -->
