@@ -1,4 +1,4 @@
-package model;
+package com.example.demo.model;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -11,7 +11,6 @@ import java.util.List;
 @Table(name = "winery")
 @Getter
 @Setter
-@AllArgsConstructor
 public class Winery {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,5 +24,14 @@ public class Winery {
     private List<Wine> wines;
     public Winery() {
         wines = new ArrayList<>();
+    }
+
+    public Winery(String name, String location, String description, String website, String email) {
+        this.name = name;
+        this.location = location;
+        this.description = description;
+        this.website = website;
+        this.email = email;
+        this.wines = new ArrayList<>();
     }
 }

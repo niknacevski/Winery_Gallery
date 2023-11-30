@@ -1,4 +1,4 @@
-package model;
+package com.example.demo.model;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -9,7 +9,6 @@ import lombok.*;
 @NoArgsConstructor
 @Getter
 @Setter
-@AllArgsConstructor
 @Entity
 public class Wine {
     @Id
@@ -21,6 +20,12 @@ public class Wine {
     @ManyToOne
     @JoinColumn(name = "winery_id")
     private Winery winery;
+    public Wine(String name, Integer year, String description, Winery winery) {
+        this.name = name;
+        this.year = year;
+        this.description = description;
+        this.winery = winery;
+    }
 
 
 }

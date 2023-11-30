@@ -1,10 +1,10 @@
-package web.controller;
+package com.example.demo.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import service.WineryService;
+import com.example.demo.service.WineryService;
 
 @Controller
 @RequestMapping("/winery")
@@ -21,6 +21,7 @@ public class WineryController {
     public String getWineryPage(Model model) {
 
         model.addAttribute("wineries", wineryService.findAll());
+        System.out.println(wineryService.findAll());
         return "winery-template";
     }
 }
