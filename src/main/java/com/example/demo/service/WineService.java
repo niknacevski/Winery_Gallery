@@ -19,4 +19,6 @@ public interface WineService {
             Wine edit(Long id, String name, Integer year, String description, Long wineryId);
 
             void addWineToWinery(Wine wine, Winery winery);
+
+             Wine save(Wine wine);
 }

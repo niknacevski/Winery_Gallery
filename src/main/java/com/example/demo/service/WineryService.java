@@ -15,4 +15,5 @@ public interface WineryService {
 
         Winery save(String name, String location, String description, String website, String email);
 
+        Winery save(Winery winery);
 }

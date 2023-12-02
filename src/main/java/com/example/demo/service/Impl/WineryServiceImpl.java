@@ -39,5 +39,10 @@ public class WineryServiceImpl implements WineryService {
         return wineryRepository.save(w);
     }
 
+    @Override
+    public Winery save(Winery winery) {
+        return wineryRepository.save(winery);
+    }
+
 
 }

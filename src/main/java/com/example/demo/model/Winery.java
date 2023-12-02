@@ -20,7 +20,7 @@ public class Winery {
     private String description;
     private String website;
     private String email;
-    @OneToMany(mappedBy = "winery")
+    @OneToMany(mappedBy = "winery", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Wine> wines;
     public Winery() {
         wines = new ArrayList<>();
