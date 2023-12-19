@@ -12,8 +12,7 @@ public interface WineryService {
         Optional<Winery> findById(Long id);
 
         void deleteById(Long id);
+    Winery save(String name, String location, String description, String website, String email, String iframe, String logo);
 
-        Winery save(String name, String location, String description, String website, String email);
-
-        Winery save(Winery winery);
+    Winery save(Winery winery);
 }

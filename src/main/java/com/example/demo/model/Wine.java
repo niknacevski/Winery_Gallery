@@ -15,6 +15,7 @@ public class Wine {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Integer year;
+    @Column(length = 1000)
     private String description;
     private String name;
     @ManyToOne

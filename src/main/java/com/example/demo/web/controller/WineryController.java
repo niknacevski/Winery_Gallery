@@ -24,7 +24,7 @@ public class WineryController {
     public String listWineries(Model model) {
         List<Winery> wineries = wineryService.findAll();
         model.addAttribute("wineries", wineries);
-        return "list";
+        return "view1";
     }
 
     @GetMapping("/{id}")

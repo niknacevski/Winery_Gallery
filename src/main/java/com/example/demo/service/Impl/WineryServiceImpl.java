@@ -33,9 +33,11 @@ public class WineryServiceImpl implements WineryService {
         wineryRepository.deleteById(id);
     }
 
+
     @Override
-    public Winery save(String name, String location, String description, String website, String email) {
-        Winery w = new Winery(name, location, description, website, email);
+    public Winery save(String name, String location, String description, String website, String email, String iframe, String logo) {
+
+        Winery w = new Winery(name, location, description, website, email, iframe,logo);
         return wineryRepository.save(w);
     }
 
