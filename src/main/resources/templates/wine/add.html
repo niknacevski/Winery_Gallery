@@ -12,6 +12,7 @@
 <form th:action="@{/wines/add}" th:object="${wine}" method="post">
     <label>Name: <input type="text" th:field="*{name}" /></label><br/>
     <label>Year: <input type="number" th:field="*{year}" /></label><br/>
+    <label>PictureURL: <input type="text" th:field="*{picture}" /></label><br/>
     <label>Description: <input type="text" th:field="*{description}" /></label><br/>
     <label>Winery:
         <select th:field="*{winery}">

@@ -38,19 +38,21 @@ public class WineServiceImpl implements WineService {
     }
 
     @Override
-    public Wine save(String name, Integer year, String description, Long wineryId) {
-        Wine w = new Wine(name, year, description, wineryRepository.findById(wineryId).get());
+    public Wine save(String name, Integer year, String description, Long wineryId, String picture) {
+        Wine w = new Wine(name, year, description, wineryRepository.findById(wineryId).get(),picture);
         return wineRepository.save(w);
     }
 
     @Override
-    public Wine edit(Long id, String name, Integer year, String description, Long wineryId) {
+    public Optional<Wine> edit(Long id, String name, Integer year, String description, Long wineryId,String picture) {
         Wine w = wineRepository.findById(id).get();
         w.setName(name);
         w.setYear(year);
         w.setDescription(description);
-        w.setWinery(wineryRepository.findById(wineryId).get());
-        return wineRepository.save(w);
+        if(w.getWinery()!=wineryRepository.findById(wineryId).get())
+            w.setWinery(wineryRepository.findById(wineryId).get());
+        w.setPicture(picture);
+        return Optional.of(wineRepository.save(w));
     }
 
     @Override

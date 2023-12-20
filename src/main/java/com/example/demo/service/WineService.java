@@ -14,9 +14,9 @@ public interface WineService {
 
             void deleteById(Long id);
 
-            Wine save(String name, Integer year, String description, Long wineryId);
+            Wine save(String name, Integer year, String description, Long wineryId, String picture);
 
-            Wine edit(Long id, String name, Integer year, String description, Long wineryId);
+            Optional<Wine> edit(Long id, String name, Integer year, String description, Long wineryId, String picture);
 
             void addWineToWinery(Wine wine, Winery winery);
 

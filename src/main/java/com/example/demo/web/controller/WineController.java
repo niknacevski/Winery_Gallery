@@ -1,6 +1,7 @@
 package com.example.demo.web.controller;
 
 import com.example.demo.model.Wine;
+
 import com.example.demo.service.WineService;
 import com.example.demo.service.WineryService;
 import org.springframework.stereotype.Controller;
@@ -39,23 +40,26 @@ public class WineController {
         wineService.save(wine);
         return "redirect:/wines";
     }
+    @PostMapping("/{id}/edit")
+    public String editWine( @PathVariable Long id, @ModelAttribute Wine wine) {
+        wineService.save(wine);
+        return "redirect:/wines";
+    }
+
     @GetMapping("/{id}/edit")
     public String editWineForm(@PathVariable Long id, Model model) {
         Optional<Wine> wineOptional = wineService.findById(id);
         if (wineOptional.isPresent()) {
             Wine wine = wineOptional.get();
             model.addAttribute("wine", wine);
+            model.addAttribute("wineries", wineryService.findAll());  // Add wineries for the select dropdown
             return "wine/edit";
         } else {
             return "redirect:/wines";
         }
     }
-    @PostMapping("/{id}/edit")
-    public String editWine(@PathVariable Long id, @ModelAttribute Wine editedWine) {
-        // Logic to update the wine based on the editedWine data
-        wineService.edit(id, editedWine.getName(), editedWine.getYear(), editedWine.getDescription(), editedWine.getWinery().getId());
-        return "redirect:/wines";
-    }
+
+
     @GetMapping("/{id}/delete")
     public String deleteWine(@PathVariable Long id) {
         wineService.deleteById(id);
