@@ -7,11 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
 @Controller
 @RequestMapping("/wineries")
+
 public class WineryController {
 
     private final WineryService wineryService;
@@ -21,10 +23,10 @@ public class WineryController {
     }
 
     @GetMapping
-    public String listWineries(Model model) {
+    public String listWineries(Model model){
         List<Winery> wineries = wineryService.findAll();
         model.addAttribute("wineries", wineries);
-        return "view1";
+        return "view2";
     }
 
     @GetMapping("/{id}")

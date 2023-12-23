@@ -349,3 +349,29 @@ video {
     justify-content: center;
     align-items: center;
 }
+ .winerycontainer {
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Three items in a row, adjust the minmax value as needed */
+     gap: 20px; /* Adjust the gap between items */
+     margin: 20px; /* Add margin to the winery container */
+ }
+
+ .winery {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+     padding: 20px;
+     border: 1px solid #ddd; /* Add border for separation */
+     border-radius: 10px; /* Add border-radius for rounded corners */
+ }
+
+ .winery img {
+     width: 100px;
+     height: 100px;
+ }
+
+ .winery input {
+     margin-top: 10px;
+ }
