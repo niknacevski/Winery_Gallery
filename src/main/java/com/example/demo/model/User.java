@@ -1,5 +1,5 @@
 package com.example.demo.model;
-import jakarta.persistence.*;
+
 import lombok.Data;
 
 import com.example.demo.model.Role;
@@ -7,6 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -38,7 +39,14 @@ public class User implements UserDetails {
         this.username = username;
         this.password = password;
         this.email = email;
-        this.role = role;
+        if(role == null)
+        {
+            this.role = Role.ROLE_USER;
+        }
+        else
+        {
+            this.role = role;
+        }
     }
 
     @Override

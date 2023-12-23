@@ -28,3 +28,11 @@
     loginForm.style.zIndex = "999";
 }
 
+
+        function goToLink() {
+        // Get the dynamic link set by Thymeleaf
+        var dynamicLink = document.getElementById('dynamicLink').getAttribute('href');
+
+        // Redirect to the dynamic link
+        window.location.href = dynamicLink;
+    }
