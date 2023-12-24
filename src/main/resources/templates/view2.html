@@ -27,7 +27,7 @@
         <div class="navigation">
             <a href="#" class="aboutus">About us</a>
             <a href="#" class="wineries">Our Wineries</a>
-            <a href="#" class="wines">Our Wines</a>
+            <a href="/wines" class="wines">Our Wines</a>
             <a href="/user" th:text="${session.user.getUsername()}"></a>
             <a href="/logout">Log Out</a>
 
@@ -98,14 +98,16 @@
         <div class="header2">Wine Families</div>
 
         <div class="container">
-            <div th:each="winery : ${wineries}" class="row">
-                <div class="col-md-4">
+            <div class="row">
+                <div th:each="winery, iterStat : ${wineries}" class="col-md-4">
                     <div class="winery">
                         <img class="img" style="width: 100px; height: 100px;" th:src="${winery.logo}" alt="logo">
                         <h1 class="title" th:text="${winery.name}"></h1>
                         <p class="description" th:text="${winery.description}"></p>
 
-                        <a th:href="${winery.website}"><input type="button" value="More info"></a>
+                        <a th:href="${winery.website}">
+                            <input type="button" value="More info">
+                        </a>
                         <div th:utext="${winery.iframe}"></div>
                     </div>
                 </div>
